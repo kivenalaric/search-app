@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  background-color: #484646;
+  padding: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: #2185e2;
+  margin:auto;
+  padding: 10px;
+  border-radius: 5%;
+}
+
+.inputfields{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputfields label {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+}
+
+.ages {
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  height: 30px;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: auto;
+  scrollbar-color: #383737;
+  scrollbar-width: thin;
+}
+
+.people {
+  width: 400px;
+  height: 55px;
+  border-radius: 5px;
+  /* border: lightsteelblue solid 1px; */
+  background-color: #31377c;
+  align-items: left;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  gap: 10px;
+  margin: auto;
+}
+
+.image {
+  background-color: #e09524;
+  border-radius: 25px;
+  height: 30px;
+  width: 30px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.proper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+p {
+  font-size: 22px;
+  font-weight: 600;
+}
+
