@@ -1,7 +1,6 @@
 const pageForm = document.querySelector('form')
 const userContainer = document.querySelector('.users')
 const abbrevNames = document.querySelector('.image')
-let users
 // to display array of users
 
 function displayUser ({ age, name }) {
@@ -55,7 +54,7 @@ function searchUsers (name, age) {
           )
         )
       } else {
-        Error([])
+        reject([])
       }
     }, 2000)
   })
