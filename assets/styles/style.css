@@ -1,7 +1,9 @@
 body {
-  margin: 0;
   background-color: #484646;
-  padding: 0;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 form {
@@ -11,7 +13,7 @@ form {
   justify-content: center;
   gap: 20px;
   background-color: #2185e2;
-  margin:auto;
+  margin: auto;
   padding: 10px;
   border-radius: 5%;
 }
@@ -22,6 +24,7 @@ form {
   gap: 10px;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
 .inputfields label {
@@ -52,22 +55,30 @@ form {
   scrollbar-width: thin;
 }
 
+.search {
+  border: none;
+  background-color: gold;
+  padding: 5px 10px;
+  width: 80px;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
 .people {
-  width: 400px;
   height: 55px;
   border-radius: 5px;
   /* border: lightsteelblue solid 1px; */
-  background-color: #31377c;
+  background-color: #fc766aff;
   align-items: left;
   display: flex;
   flex-direction: row;
   padding: 5px;
   gap: 10px;
-  margin: auto;
 }
 
 .image {
-  background-color: #e09524;
+  background-color: gold;
   border-radius: 25px;
   height: 30px;
   width: 30px;
@@ -89,4 +100,3 @@ p {
   font-size: 22px;
   font-weight: 600;
 }
-
