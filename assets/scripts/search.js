@@ -1,7 +1,7 @@
 const pageForm = document.querySelector('form')
 const userContainer = document.querySelector('.users')
 const abbrevNames = document.querySelector('.image')
-
+let users
 // to display array of users
 
 function displayUser ({ age, name }) {
@@ -48,7 +48,7 @@ function searchUsers (name, age) {
     setTimeout(() => {
       if (shouldRessolve()) {
         resolve(
-          users.filter(
+         users.filter(
             (user) =>
               (!name || compareNames(user.name, name)) &&
               (!age || user.age === age)
