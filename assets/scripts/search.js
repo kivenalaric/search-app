@@ -48,14 +48,14 @@ function searchUsers (name, age) {
     setTimeout(() => {
       if (shouldRessolve()) {
         resolve(
-         users.filter(
+          users.filter(
             (user) =>
               (!name || compareNames(user.name, name)) &&
               (!age || user.age === age)
           )
         )
       } else {
-        reject([])
+        Error([])
       }
     }, 2000)
   })
