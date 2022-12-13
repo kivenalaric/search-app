@@ -40,10 +40,10 @@ function shouldRessolve () {
 
 // //search users amongst the array of users
 function searchUsers (name, age) {
-//   return users.filter(
-//     (user) =>
-//       (!name || compareNames(user.name, name)) && (!age || user.age === age)
-//   );
+  //   return users.filter(
+  //     (user) =>
+  //       (!name || compareNames(user.name, name)) && (!age || user.age === age)
+  //   );
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldRessolve()) {
@@ -51,7 +51,7 @@ function searchUsers (name, age) {
           users.filter(
             (user) =>
               (!name || compareNames(user.name, name)) &&
-                   (!age || user.age === age)
+              (!age || user.age === age)
           )
         )
       } else {
@@ -65,9 +65,7 @@ function renderMsg (message) {
   return `<div class"message">${message}</div>`
 }
 
-abbrevNames.style.background =
-
-userContainer.innerHTML = displayUsers(users)
+abbrevNames.style.background = userContainer.innerHTML = displayUsers(users)
 
 pageForm.addEventListener('submit', (e) => {
   e.preventDefault()
