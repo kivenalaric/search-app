@@ -4,6 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 96vh;
 }
 
 form {
@@ -50,9 +51,12 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow: auto;
-  scrollbar-color: #383737;
-  scrollbar-width: thin;
+  padding: 4px;
+  overflow-x: hidden;
+  max-width: 500px;
+  height: 120px;
+  overflow-y: auto;
+  text-align: justify;
 }
 
 .search {
@@ -100,3 +104,4 @@ p {
   font-size: 22px;
   font-weight: 600;
 }
+

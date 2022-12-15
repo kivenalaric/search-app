@@ -1,7 +1,9 @@
 const pageForm = document.querySelector('form')
 const userContainer = document.querySelector('.users')
 const abbrevNames = document.querySelector('.image')
+const deleteBtn = document.querySelector('#selete')
 // to display array of users
+
 
 function displayUser ({ age, name }) {
   return `<div class="people">
@@ -12,6 +14,7 @@ function displayUser ({ age, name }) {
   <label for="age">Age:</label>
   <p>${age} year(s)</p>
   </div>
+  <button>&cross;</button>
 </div> `
 }
 
@@ -54,7 +57,7 @@ function searchUsers (name, age) {
           )
         )
       } else {
-        reject([])
+        Error([])
       }
     }, 2000)
   })
