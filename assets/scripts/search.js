@@ -1,6 +1,7 @@
 const pageForm = document.querySelector('form')
 const userContainer = document.querySelector('.users')
 const abbrevNames = document.querySelector('.image')
+const deleteBtn = document.querySelector('#delete')
 // to display array of users
 
 const users = [
@@ -29,6 +30,10 @@ function displayUser ({ age, name }) {
   <button>&cross;</button>
 </div> `
 }
+
+deleteBtn.addEventListener('click', () =>{
+
+})
 
 function initials (name) {
   return name

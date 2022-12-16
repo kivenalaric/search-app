@@ -1,5 +1,5 @@
 body {
-  background-color: #484646;
+  background-color: #b9b8b8;
   padding: auto;
   display: flex;
   justify-content: center;
@@ -13,7 +13,8 @@ form {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background-color: #2185e2;
+  color: white;
+  background-color: #00154f;
   margin: auto;
   padding: 10px;
   border-radius: 5%;
@@ -54,8 +55,7 @@ form {
   padding: 4px;
   overflow-x: hidden;
   max-width: 500px;
-  height: 120px;
-  overflow-y: auto;
+  overflow-y: hidden;
   text-align: justify;
 }
 
@@ -73,12 +73,12 @@ form {
   height: 55px;
   border-radius: 5px;
   /* border: lightsteelblue solid 1px; */
-  background-color: #fc766aff;
-  align-items: left;
+  background-color: #f2bc94;
   display: flex;
   flex-direction: row;
-  padding: 5px;
-  gap: 10px;
+  justify-content: space-between;
+  padding: 10px;
+  color: #0e0123;
 }
 
 .image {
@@ -91,13 +91,17 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .proper {
   align-items: center;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  text-align: left;
+  gap: 8px;
+  margin-left: 10px;
 }
 
 p {
