@@ -1,64 +1,106 @@
-const pageForm = document.querySelector('form')
-const userContainer = document.querySelector('.users')
-const abbrevNames = document.querySelector('.image')
-const deleteBtn = document.querySelector('#delete')
+const pageForm = document.querySelector("form");
+const userContainer = document.querySelector(".users");
+const abbrevNames = document.querySelector(".image");
+const deleteBtn = document.querySelector("#delete");
 // to display array of users
 
 const users = [
-  { name: 'Pen Malone', age: 23 },
-  { name: 'Nsairun', age: 32 },
-  { name: 'Emma', age: 40 },
-  { name: 'Trevor', age: 25 },
-  { name: 'Joshi', age: 23 },
-  { name: 'Jerry', age: 23 },
-  { name: 'Viany', age: 23 },
-  { name: 'Charles', age: 23 },
-  { name: 'Kimbi', age: 23 },
-  { name: 'Gaston', age: 23 },
-  { name: 'Rash', age: 23 }
-]
+  { name: "Pen Malone", age: 23 },
+  { name: "Nsairun", age: 32 },
+  { name: "Emma", age: 40 },
+  { name: "Trevor", age: 25 },
+  { name: "Joshi", age: 23 },
+  { name: "Jerry", age: 23 },
+  { name: "Viany", age: 23 },
+  { name: "Charles", age: 23 },
+  { name: "Kimbi", age: 23 },
+  { name: "Gaston", age: 23 },
+  { name: "Rash", age: 23 },
+];
 
-function displayUser ({ age, name }) {
-  return `<div class="people">
-  <div class="image">${initials(name)}</div>
-  <div class="proper">
-      <label for="name">Name:</label>
-  <h2>${name}</h2>
-  <label for="age">Age:</label>
-  <p>${age} year(s)</p>
-  </div>
-  <button>&cross;</button>
-</div> `
+const deleteUser = (name) => {
+  const index = users.findIndex((user) => user.name === name);
+  if (index !== -1) {
+    users.splice(index, 1);
+    displayUsers(users)
+    window.alert('user will be deleted');
+    // console.log("User deleted successfully!");
+  } else {
+    window.alert('User not found');
+    // console.error("User not found");
+  }
+};
+
+function displayUser({ age, name }) {
+  const people = document.createElement("div");
+  const image = document.createElement("div");
+  const proper = document.createElement("div");
+  const nameLabel = document.createElement("label");
+  const h2 = document.createElement("h2");
+  const ageLabel = document.createElement("label");
+  const p = document.createElement("p");
+  const delBtn = document.createElement("button");
+
+  people.className = "people";
+  image.className = "image";
+  proper.className = "proper";
+  nameLabel.className = "namel";
+  h2.className = "h2";
+  ageLabel.className = "agel";
+  p.className = "p";
+  delBtn.className = "delete";
+
+  image.innerHTML = `${initials(name)}`;
+  nameLabel.innerHTML = "Name:";
+  h2.innerHTML = `${name}`;
+  ageLabel.innerHTML = "Age:";
+  p.innerHTML = `${age} years(s)`;
+  delBtn.innerHTML = "&cross;";
+
+  people.appendChild(image);
+  proper.appendChild(nameLabel);
+  proper.appendChild(h2);
+  proper.appendChild(ageLabel);
+  proper.appendChild(p);
+  people.appendChild(proper);
+  people.appendChild(delBtn);
+  delBtn.type = "button"
+
+  delBtn.addEventListener("click", () => deleteUser(name));
+
+  return people;
 }
 
-deleteBtn.addEventListener('click', () =>{
-
-})
-
-function initials (name) {
+function initials(name) {
   return name
-    .split(' ')
+    .split(" ")
     .map((yo) => yo[0].toUpperCase())
-    .join('.')
+    .join(".");
 }
 
-// transform the array f users
-function displayUsers (persons) {
-  return persons.length
-    ? persons.map(displayUser).join('')
-    : renderMsg('sorry! No user found')
+function displayUsers(persons) {
+  userContainer.innerHTML = '';
+  if (persons.length) {
+    persons.forEach(({ age, name }) => {
+      userContainer.appendChild(displayUser({ age, name }));
+    });
+
+    return;
+  }
+
+  renderMsg("sorry! No user found");
 }
 
-function compareNames (name, searchTerm) {
-  return name.toLowerCase().includes(searchTerm.toLowerCase())
+function compareNames(name, searchTerm) {
+  return name.toLowerCase().includes(searchTerm.toLowerCase());
 }
 
-function shouldRessolve () {
-  return Math.random() < 0.75
+function shouldRessolve() {
+  return Math.random() < 0.75;
 }
 
 // //search users amongst the array of users
-function searchUsers (name, age) {
+function searchUsers(name, age) {
   //   return users.filter(
   //     (user) =>
   //       (!name || compareNames(user.name, name)) && (!age || user.age === age)
@@ -72,30 +114,29 @@ function searchUsers (name, age) {
               (!name || compareNames(user.name, name)) &&
               (!age || user.age === age)
           )
-        )
+        );
       } else {
-        Error([])
+        Error([]);
       }
-    }, 2000)
-  })
+    }, 2000);
+  });
 }
 
-function renderMsg (message) {
-  return `<div class"message">${message}</div>`
+function renderMsg(message) {
+  return `<div class"message">${message}</div>`;
 }
 
-abbrevNames.style.background = userContainer.innerHTML = displayUsers(users)
 
-pageForm.addEventListener('submit', (e) => {
-  e.preventDefault()
-  userContainer.innerHTML = renderMsg('searching users....')
+pageForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  userContainer.innerHTML = renderMsg("searching users....");
   searchUsers(e.target.name.value, +e.target.age.value)
-    .then((result) => {
-      userContainer.innerHTML = displayUsers(result)
-    })
+    .then((result) =>  displayUsers(result))
     .catch((e) => {
       userContainer.innerHTML = renderMsg(
-        'Error loading users please try again'
-      )
-    })
-})
+        "Error loading users please try again"
+      );
+    });
+});
+
+displayUsers(users);
